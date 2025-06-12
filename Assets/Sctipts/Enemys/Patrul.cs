@@ -17,7 +17,7 @@ public class Patrul : MonoBehaviour
         } 
         else
         { 
-            transform.position = Vector2.MoveTowards(transform.position, _patrulPoints[_patrulIndex].position, _speed); 
+            transform.position = Vector2.MoveTowards(transform.position, _patrulPoints[_patrulIndex].position, _speed * Time.deltaTime); 
         }
     }
 }
