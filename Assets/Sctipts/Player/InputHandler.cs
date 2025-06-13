@@ -8,13 +8,9 @@ public class InputHandler : MonoBehaviour
     public float Direction { get; private set; }
     public bool IsJump {  get; private set; }
 
-    private void FixedUpdate()
-    {
-        Direction = Input.GetAxis(Horizontal);
-    }
-
     private void Update()
     {
+        Direction = Input.GetAxis(Horizontal);
         IsJump = Input.GetKey(KeyCode.Space);
     }
 }

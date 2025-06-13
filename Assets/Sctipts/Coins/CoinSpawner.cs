@@ -36,7 +36,7 @@ public class CoinSpawner : MonoBehaviour
 
     private void ActionOnGet(Coin coin)
     {
-        coin.Picked += Relese;
+        coin.Colected += Relese;
         coin.gameObject.SetActive(true);
         coin.transform.position = GetRandomPosition();
     }
@@ -44,7 +44,7 @@ public class CoinSpawner : MonoBehaviour
     private void Relese(Coin coin)
     {
         _pool.Release(coin);
-        coin.Picked -= Relese;
+        coin.Colected -= Relese;
     }
 
     private Vector2 GetRandomPosition()

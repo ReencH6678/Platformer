@@ -7,11 +7,8 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private Animator _animator;
 
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-
-    private void Update()
+    public void PlayMoveAnimation()
     {
         _animator.SetBool(_speedBlendParameter, _inputHandler.Direction != 0);
-        _spriteRenderer.flipX = _inputHandler.Direction < 0;
     }
 }
