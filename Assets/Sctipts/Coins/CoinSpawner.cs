@@ -20,7 +20,7 @@ public class CoinSpawner : MonoBehaviour
     {
         _pool = new ObjectPool<Coin>(
             createFunc: () => Instantiate(_prefab, GetRandomPosition(), Quaternion.identity),
-            actionOnGet: (obj) => ActionOnGet(obj),
+            actionOnGet: (obj) => GetCoin(obj),
             actionOnRelease: (obj) => obj.gameObject.SetActive(false),
             actionOnDestroy: (obj) => Destroy(obj),
             collectionCheck: true, 
@@ -34,7 +34,7 @@ public class CoinSpawner : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
-    private void ActionOnGet(Coin coin)
+    private void GetCoin(Coin coin)
     {
         coin.Colected += Relese;
         coin.gameObject.SetActive(true);

@@ -8,7 +8,9 @@ public class GrondChecker : MonoBehaviour
 
     private Vector2 _checkPosition;
 
-    public bool IsOnGround()
+    public bool IsOnGround => CheckGround();
+
+    public bool CheckGround()
     {
         _checkPosition = new Vector2(transform.position.x + _offset.x, transform.position.y + _offset.y);
 

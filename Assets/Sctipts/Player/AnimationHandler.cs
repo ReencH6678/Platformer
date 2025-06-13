@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-    [SerializeField]private string _speedBlendParameter;
-
-    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private string _speedBlendParameter;
     [SerializeField] private Animator _animator;
 
-    public void PlayMoveAnimation()
+    public void PlayMoveAnimation(float direction)
     {
-        _animator.SetBool(_speedBlendParameter, _inputHandler.Direction != 0);
+        _animator.SetBool(_speedBlendParameter, direction != 0);
     }
 }

@@ -539,6 +539,9 @@ GameObject:
   - component: {fileID: 699138202}
   - component: {fileID: 699138201}
   - component: {fileID: 699138205}
+  - component: {fileID: 699138207}
+  - component: {fileID: 699138206}
+  - component: {fileID: 699138208}
   m_Layer: 0
   m_Name: EnemySheet_0
   m_TagString: Untagged
@@ -588,8 +591,7 @@ MonoBehaviour:
   _patrulPoints:
   - {fileID: 1005314411}
   - {fileID: 371221505}
-  _speed: 3
-  _offset: 0.05
+  _offset: 0.5
   _patrulIndex: 0
 --- !u!212 &699138203
 SpriteRenderer:
@@ -693,6 +695,43 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.31413078}
   serializedVersion: 2
   m_Radius: 0.6858692
+--- !u!114 &699138206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699138200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6548b4e708773da44848078120c74f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &699138207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699138200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba2a6ce169fc33469b62c3d85c7e573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+--- !u!114 &699138208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699138200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d02161b1e7f32459c9bfaf6bc561db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1005314410
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 508822677}
-  _coinPicker: {fileID: 2057371346}
+  _wallet: {fileID: 0}
 --- !u!114 &1118594329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +969,7 @@ GameObject:
   - component: {fileID: 2057371346}
   - component: {fileID: 2057371344}
   - component: {fileID: 2057371347}
+  - component: {fileID: 2057371348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1166,10 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35725378a07900743b421bdf4372d672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedBlendParameter: IsMoving
-  _inputHandler: {fileID: 2057371337}
+  _speedBlendParameter: isMoving
   _animator: {fileID: 2057371344}
-  _spriteRenderer: {fileID: 2057371340}
 --- !u!114 &2057371346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,6 +1220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9efa8778835e764aa3d84bbaec6871b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CoinsCount>k__BackingField: 0
 --- !u!70 &2057371347
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1217,6 +1256,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1}
   m_Size: {x: 1.29, y: 2.35}
   m_Direction: 0
+--- !u!114 &2057371348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057371334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d02161b1e7f32459c9bfaf6bc561db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

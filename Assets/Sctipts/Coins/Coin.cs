@@ -1,11 +1,10 @@
 using System;
-using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : Item
 {
     public event Action<Coin> Colected;
 
-    public void Colect()
+    public override void Collect()
     {
         Colected?.Invoke(this);
     }
