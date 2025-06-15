@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 508822677}
-  _wallet: {fileID: 0}
+  _wallet: {fileID: 2057371349}
 --- !u!114 &1118594329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,10 +966,11 @@ GameObject:
   - component: {fileID: 2057371343}
   - component: {fileID: 2057371345}
   - component: {fileID: 2057371335}
-  - component: {fileID: 2057371346}
+  - component: {fileID: 2057371348}
+  - component: {fileID: 2057371350}
+  - component: {fileID: 2057371349}
   - component: {fileID: 2057371344}
   - component: {fileID: 2057371347}
-  - component: {fileID: 2057371348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1208,19 +1209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedBlendParameter: isMoving
   _animator: {fileID: 2057371344}
---- !u!114 &2057371346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057371334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9efa8778835e764aa3d84bbaec6871b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CoinsCount>k__BackingField: 0
 --- !u!70 &2057371347
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1266,6 +1254,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d02161b1e7f32459c9bfaf6bc561db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2057371349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057371334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e307b55a4329d284dac089cb66c474c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2057371350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057371334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70440ce34fec788499d6ac0c17de6d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

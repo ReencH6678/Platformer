@@ -6,14 +6,12 @@ public class GrondChecker : MonoBehaviour
     [SerializeField] private float _checkRadius;
     [SerializeField] private LayerMask _groundLayer;
 
-    private Vector2 _checkPosition;
-
     public bool IsOnGround => CheckGround();
 
     public bool CheckGround()
     {
-        _checkPosition = new Vector2(transform.position.x + _offset.x, transform.position.y + _offset.y);
+        Vector2 checkPosition = new Vector2(transform.position.x + _offset.x, transform.position.y + _offset.y);
 
-        return Physics2D.OverlapCircle(_checkPosition, _checkRadius, _groundLayer);
+        return Physics2D.OverlapCircle(checkPosition, _checkRadius, _groundLayer);
     }
 }

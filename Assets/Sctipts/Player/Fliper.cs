@@ -21,6 +21,8 @@ public class Fliper : MonoBehaviour
                 transform.rotation = _rightRotate;
             else
                 transform.rotation = _leftRotate;
+
+            _currentDirection = direction;
         }
     }
 }
