@@ -10,7 +10,7 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private Vector2 _maxPosition;
 
     [SerializeField] private float _spawnTime;
-    private bool _isOn = true;
+    [SerializeField] private bool _isOn = true;
 
     private ObjectPool<Coin> _pool;
     private int _poolCpacity = 5;
