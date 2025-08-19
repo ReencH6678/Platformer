@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Fliper : MonoBehaviour
 {
+    [SerializeField] private GameObject _flipObject;
+
     private Quaternion _rightRotate;
     private Quaternion _leftRotate;
 
@@ -18,9 +20,9 @@ public class Fliper : MonoBehaviour
         if (direction != _currentDirection) 
         {
             if(direction > 0)
-                transform.rotation = _rightRotate;
+                _flipObject.transform.rotation = _rightRotate;
             else
-                transform.rotation = _leftRotate;
+                _flipObject.transform.rotation = _leftRotate;
 
             _currentDirection = direction;
         }

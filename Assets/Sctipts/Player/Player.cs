@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler), typeof(Mover), typeof(Jumper))]
-[RequireComponent(typeof(Rigidbody2D), typeof(Fliper), typeof(AnimationHandler))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Fliper))]
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     private Fliper _fliper;
     private Jumper _jumper;
     private Rigidbody2D _rigidbody2D;
-    private AnimationHandler _animationHandler;
     private GrondChecker _grondChecker;
 
     private void Awake()
@@ -20,14 +19,11 @@ public class Player : MonoBehaviour
         _fliper = GetComponent<Fliper>();
         _jumper = GetComponent<Jumper>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _animationHandler = GetComponent<AnimationHandler>();
         _grondChecker = GetComponent<GrondChecker>();
     }
 
     private void Update()
     {
-        _animationHandler.PlayMoveAnimation(_inputHandler.Direction);
-
         if (_inputHandler.Direction != 0)
         {
             _mover.Move(_inputHandler.Direction);

@@ -6,6 +6,6 @@ public class Mover : MonoBehaviour
 
     public void Move(float direction)
     {
-        transform.Translate(Vector2.right * _speed * Time.deltaTime);
+        transform.Translate(new Vector3(_speed * Time.deltaTime * direction, 0));
     } 
 }
