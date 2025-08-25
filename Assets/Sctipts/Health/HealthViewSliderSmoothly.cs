@@ -21,24 +21,29 @@ public class HealthViewSliderSmoothly : HealthView
 
     private IEnumerator SmoothHealthTransition(float healthCount, float maxHealCount)
     {
-        float divisor = 100;
-        float targetVelue = maxHealCount / divisor * healthCount;
+        float epsilon = 0.0001f;
+        bool isHealthZero = healthCount == 0;
 
-        float step = 0.01f;
+        if (isHealthZero)
+            healthCount = epsilon;
+
+        float targetVelue = healthCount / maxHealCount;
+
+        float step = 0.001f;
         float stepsCount = Mathf.Abs(targetVelue - _slider.value) / step;
 
         var waitForSeconds = new WaitForSeconds(_deley);
 
-        _slider.fillRect.gameObject.SetActive(healthCount > 0);
-
-        if (healthCount <= maxHealCount)
+        for (int i = 0; i <= stepsCount; i++)
         {
-            for (int i = 0; i <= stepsCount; i++)
-            {
-                _slider.value = Mathf.MoveTowards(_slider.value, targetVelue, step);
+            _slider.value = Mathf.MoveTowards(_slider.value, targetVelue, step);
 
-                yield return waitForSeconds;
-            }
+            yield return waitForSeconds;
         }
+
+        if (isHealthZero)
+            _slider.value = 0;
+
+        _slider.fillRect.gameObject.SetActive(healthCount - epsilon > 0);
     }
 }

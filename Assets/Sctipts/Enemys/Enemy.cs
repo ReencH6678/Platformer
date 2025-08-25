@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     private Mover _mover;
     private Fliper _fliper;
 
-    private bool _isPatrolling = true;
     private float _direction = Vector2.right.x;
 
     private enum State
