@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Health), typeof(EmemyFinder))]
 public class Vamperism : MonoBehaviour
 {
     [SerializeField] private float _radius;
@@ -11,6 +11,8 @@ public class Vamperism : MonoBehaviour
     [SerializeField] private Vector3 _offset;
 
     private Health _health;
+    private EmemyFinder _enemyFinder;
+
     private float _attackTime = 6;
 
     public bool IsOn { get; private set; }
@@ -21,35 +23,31 @@ public class Vamperism : MonoBehaviour
     private void Awake()
     {
         _health = GetComponent<Health>();
+        _enemyFinder = GetComponent<EmemyFinder>(); 
         IsOn = false;
     }
 
     public IEnumerator PullOut()
     {
-        Health health = GetEnemyHealth();
+        Health health = _enemyFinder.GetNearestEnemy(_radius, _offset);
 
         float time = 0;
         var cooldown = new WaitForSeconds(_cooldown);
+        IsOn = true;
 
         PullOutStarted?.Invoke(_attackTime);
 
-        while (time < _attackTime && health != null)
+        while (time < _attackTime)
         {
             time += Time.deltaTime;
             float tickDamage = _damage * (Time.deltaTime / _attackTime);
 
-            if (IsInRadius(health) && health.Count > 0)
+            if (health != null && IsInRadius(health) && health.Count > 0)
             {
                 health.TakeDamage(tickDamage);
                 _health.Heal(tickDamage);
             }
-            else
-            {
-                break;
-            }
             
-            IsOn = true;
-
             yield return null;
         }
 
@@ -73,29 +71,5 @@ public class Vamperism : MonoBehaviour
     private bool IsInRadius(Health health)
     {
         return Vector2.Distance(transform.position + _offset, health.transform.position) <= _radius;
-    }
-
-    private Health GetEnemyHealth()
-    {
-        float distance = 100;
-
-        Health target = null;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position +_offset, _radius);
-
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.gameObject.TryGetComponent<Health>(out Health health) && health != _health)
-            {
-                float currentDistance = Vector2.Distance(transform.position, hit.transform.position);
-
-                if (currentDistance <= distance)
-                {
-                    target = health;
-                    distance = currentDistance;
-                }
-            }
-        }
-
-        return target;
     }
 }
